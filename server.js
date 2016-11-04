@@ -15,6 +15,7 @@ server.on("listening", function(){
 
 server.on("message", function(msg, remote){
 	console.log("message from", remote.address, ":", remote.port, msg);
+	server.send("9000", 0, 4, remote.port, remote.address);
 });
 
 server.bind(SERVER_PORT);

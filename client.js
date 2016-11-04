@@ -17,6 +17,10 @@ function inquire(msg){
 	socket.on("listening", function(){
 		socket.setBroadcast(true);
 	});
+	socket.on("message", function(msg){
+		console.log("got:", msg);
+		socket.close();
+	});
 	socket.send(msg, 0, msg.length, SERVER_PORT, "192.168.11.255", function(err){
 		if( err ){
 			console.log("ERROR:", err);
